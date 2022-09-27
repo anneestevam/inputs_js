@@ -1,2 +1,3 @@
-# inputs_js
- 
+# Curso JavaScript do DevMedia
+
+Exercícios feitos durante o curso.
