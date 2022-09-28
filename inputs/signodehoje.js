@@ -13,10 +13,20 @@ let colecao_signos = [
     {"Nome": "Capricórnio", "DataInicio": "12-22","DataFim":"01-19"}
 ]
 
-const retorna_signo = (signos) => {
-    return signos[2]["Nome"];
+const retorna_signo = (signos, data) => {
+
+    let ano = data.getFullYear();
+
+    let data_inicio_signo = new Date(ano + "-" + signos[0]["DataInicio"] + " 00:00:00");
+    let data_fim_signo = new Date(ano + "-" + signos[0]["DataFim"] + " 00:00:00")
+
+    if(data >= data_inicio_signo && data <= data_fim_signo) {
+        return signos[0]["Nome"]
+    }
 }
 
-const nome_signo = retorna_signo(colecao_signos);
+let data_app = new Date("2020-02-07 00:00:00");
+
+const nome_signo = retorna_signo(colecao_signos, data_app);
 
 console.log("O signo de hoje é: " + nome_signo);
