@@ -1,5 +1,3 @@
-import feriadosNacionais from "./feriadosNacionais";
-
 function filtraFeriados(feriados, numeroFeriados) {
     const dataAtual = new Date();
     const anoAtual = dataAtual.getFullYear();
@@ -8,14 +6,15 @@ function filtraFeriados(feriados, numeroFeriados) {
     let novaDataFeriado;
 
     feriados.forEach(feriado => {
+
         novaDataFeriado = new Date(feriado.data + '/' + anoAtual);
 
-        if(dataAtual > novaDataFeriado) {
+        if(dataAtual > novaDataFeriado){
             novaDataFeriado.setFullYear(anoAtual + 1);
         }
 
         proximosFeriados.push({
-            nomr: feriado.nome,
+            nome: feriado.nome,
             data: novaDataFeriado
         });
     });
@@ -25,3 +24,5 @@ function filtraFeriados(feriados, numeroFeriados) {
 
     return proximosFeriados;
 }
+
+export default filtraFeriados;
